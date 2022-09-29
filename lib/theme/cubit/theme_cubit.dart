@@ -11,7 +11,7 @@ class ThemeCubit extends HydratedCubit<Color> {
   static const defaultColor = Color(0xFF2196F3);
 
   void updateTheme(Weather weather) {
-    if (weather != null) emit(weather.toColor);
+    emit(weather.toColor);
   }
 
   @override

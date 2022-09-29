@@ -20,12 +20,12 @@ class Temperature extends Equatable {
   factory Temperature.fromJson(Map<String, dynamic> json) =>
       _$TemperatureFromJson(json);
 
+  // ignore: prefer_typing_uninitialized_variables
   final value;
 
   Map<String, dynamic> toJson() => _$TemperatureToJson(this);
 
   @override
-  // TODO: implement props
   List<Object?> get props => [value];
 }
 
