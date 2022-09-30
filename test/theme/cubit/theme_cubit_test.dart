@@ -5,8 +5,6 @@ import 'package:weather_app_with_bloc/theme/cubit/theme_cubit.dart';
 import 'package:weather_repository/weather_repository.dart';
 import 'package:mocktail/mocktail.dart';
 
-import 'package:hydrated_bloc/hydrated_bloc.dart';
-
 class MockWeather extends Mock implements Weather {
   MockWeather(this._condition);
 
