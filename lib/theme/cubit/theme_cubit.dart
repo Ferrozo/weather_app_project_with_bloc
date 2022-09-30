@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:weather_repository/weather_repository.dart';
 
+import '../../weather/models/weather.dart' as main_weather;
+
 part 'theme_state.dart';
 
 class ThemeCubit extends HydratedCubit<Color> {
@@ -10,8 +12,8 @@ class ThemeCubit extends HydratedCubit<Color> {
 
   static const defaultColor = Color(0xFF2196F3);
 
-  void updateTheme(Weather weather) {
-    emit(weather.toColor);
+  void updateTheme(main_weather.Weather? weather) {
+    if (weather != null) emit(weather.toColor);
   }
 
   @override
@@ -25,7 +27,7 @@ class ThemeCubit extends HydratedCubit<Color> {
   }
 }
 
-extension on Weather {
+extension on main_weather.Weather {
   Color get toColor {
     switch (condition) {
       case WeatherCondition.clear:

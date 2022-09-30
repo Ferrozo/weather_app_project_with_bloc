@@ -20,8 +20,7 @@ class Temperature extends Equatable {
   factory Temperature.fromJson(Map<String, dynamic> json) =>
       _$TemperatureFromJson(json);
 
-  // ignore: prefer_typing_uninitialized_variables
-  final value;
+  final double value;
 
   Map<String, dynamic> toJson() => _$TemperatureToJson(this);
 

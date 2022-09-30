@@ -11,7 +11,7 @@ Temperature _$TemperatureFromJson(Map<String, dynamic> json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = Temperature(
-          value: $checkedConvert('value', (v) => v),
+          value: $checkedConvert('value', (v) => (v as num).toDouble()),
         );
         return val;
       },

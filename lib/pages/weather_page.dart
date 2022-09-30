@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app_with_bloc/search/search.dart';
 import 'package:weather_app_with_bloc/settings/settings.dart';
-import 'package:weather_app_with_bloc/theme/theme.dart';
+import 'package:weather_app_with_bloc/widgets/weather_empty.dart';
+import 'package:weather_app_with_bloc/widgets/weather_populated.dart';
+// import 'package:weather_app_with_bloc/theme/theme.dart';
 import 'package:weather_repository/weather_repository.dart';
 
 import '../theme/cubit/theme_cubit.dart';
 import '../weather/cubit/weather_cubit.dart';
+import '../widgets/weather_error.dart';
+import '../widgets/weather_loading.dart';
 
 class WeatherPage extends StatelessWidget {
   const WeatherPage({super.key});
@@ -47,28 +51,27 @@ class _WeatherViewState extends State<WeatherView> {
         ],
       ),
       body: Center(
-        child: BlocConsumer<WeatherCubit, WeatherState>( 
+        child: BlocConsumer<WeatherCubit, WeatherState>(
           listener: (context, state) {
-            if(state.status.isSucess){
+            if (state.status.isSucess) {
               context.read<ThemeCubit>().updateTheme(state.weather);
             }
           },
-                 builder: (context, state){
-            switch(state.status){
+          builder: (context, state) {
+            switch (state.status) {
               case WeatherStatus.initial:
-                return const WeatherEmpty();
-              case WeatherStatus.loading
+                return WeatherEmpty();
+              case WeatherStatus.loading:
                 return const WeatherLoading();
               case WeatherStatus.sucess:
                 return WeatherPopulated(
-                  weather: state.weather,
-                  units: state.temperatureUnits,
-                  onRefresh: (){
-                    return context.read<WeatherCubit>().refreshWeather();
-                  }
-                );
+                    weather: state.weather,
+                    units: state.temperatureUnits,
+                    onRefresh: () {
+                      return context.read<WeatherCubit>().refreshWeather();
+                    });
               case WeatherStatus.failure:
-              return const WeatherError();
+                return const WeatherError();
             }
           },
         ),
