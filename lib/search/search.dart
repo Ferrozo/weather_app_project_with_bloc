@@ -42,7 +42,7 @@ class _SearchPageState extends State<SearchPage> {
           IconButton(
             key: const Key('searchPage_search_iconButton'),
             onPressed: () => Navigator.of(context).pop(_text),
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
           )
         ],
       ),

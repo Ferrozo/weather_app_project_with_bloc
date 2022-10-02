@@ -2,10 +2,12 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:weather_app_with_bloc/theme/cubit/theme_cubit.dart';
-import 'package:weather_repository/weather_repository.dart';
+import 'package:weather_app_with_bloc/weather/models/weather.dart'
+    as main_weather;
+import 'package:weather_repository/src/models/weather_models.dart';
 import 'package:mocktail/mocktail.dart';
 
-class MockWeather extends Mock implements Weather {
+class MockWeather extends Mock implements main_weather.Weather {
   MockWeather(this._condition);
 
   final WeatherCondition _condition;
@@ -15,8 +17,6 @@ class MockWeather extends Mock implements Weather {
 }
 
 void main() {
-  // initHydratedStorage();
-
   group('ThemeCubit', () {
     test('initial state is correct', () {
       expect(ThemeCubit().state, ThemeCubit.defaultColor);

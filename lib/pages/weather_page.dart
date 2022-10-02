@@ -4,7 +4,6 @@ import 'package:weather_app_with_bloc/search/search.dart';
 import 'package:weather_app_with_bloc/settings/settings.dart';
 import 'package:weather_app_with_bloc/widgets/weather_empty.dart';
 import 'package:weather_app_with_bloc/widgets/weather_populated.dart';
-// import 'package:weather_app_with_bloc/theme/theme.dart';
 import 'package:weather_repository/weather_repository.dart';
 
 import '../theme/cubit/theme_cubit.dart';
@@ -60,7 +59,7 @@ class _WeatherViewState extends State<WeatherView> {
           builder: (context, state) {
             switch (state.status) {
               case WeatherStatus.initial:
-                return WeatherEmpty();
+                return const WeatherEmpty();
               case WeatherStatus.loading:
                 return const WeatherLoading();
               case WeatherStatus.sucess:
