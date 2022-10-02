@@ -1,4 +1,5 @@
 import 'package:open_meteo_api/open_meteo_api.dart';
+// ignore: depend_on_referenced_packages
 import 'package:test/test.dart';
 
 void main() {

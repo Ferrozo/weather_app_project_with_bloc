@@ -158,7 +158,7 @@ void main() {
         final actual = await weatherRepository.getWeather(city);
         expect(
           actual,
-          Weather(
+          const Weather(
             temperature: 42.42,
             location: city,
             condition: WeatherCondition.rainy,

@@ -90,10 +90,8 @@ class WeatherCubit extends Cubit<WeatherState> {
     }
   }
 
-  @override
   WeatherState fromJson(Map<String, dynamic> json) =>
       WeatherState.fromJson(json);
-  @override
   Map<String, dynamic> toJson(WeatherState state) => state.toJson();
 }
 

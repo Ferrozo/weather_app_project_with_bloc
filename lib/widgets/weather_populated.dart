@@ -36,6 +36,11 @@ class WeatherPopulated extends StatelessWidget {
                         ?.copyWith(fontWeight: FontWeight.w200),
                   ),
                   Text(
+                    weather.formattedTemperature(units),
+                    style: theme.textTheme.headline3
+                        ?.copyWith(fontWeight: FontWeight.bold),
+                  ),
+                  Text(
                       '''Last Updated at ${TimeOfDay.fromDateTime(weather.lastUpdated)}'''),
                 ],
               ),

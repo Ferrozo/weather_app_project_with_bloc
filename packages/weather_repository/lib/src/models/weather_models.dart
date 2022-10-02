@@ -27,6 +27,5 @@ class Weather {
   final double temperature;
   final WeatherCondition condition;
 
-  @override
   List<Object> get props => [location, temperature, condition];
 }
