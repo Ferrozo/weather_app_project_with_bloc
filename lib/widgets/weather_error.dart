@@ -9,7 +9,7 @@ class WeatherError extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         const Text('Error:', style: TextStyle(fontSize: 30)),
-        Text('Something went wrong!', style: theme.textTheme.headline5),
+        Text('Error 404!', style: theme.textTheme.headline5),
       ],
     );
   }
