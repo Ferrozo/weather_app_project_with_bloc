@@ -34,11 +34,14 @@ class _WeatherViewState extends State<WeatherView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.indigo[900],
       appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
         title: const Text('WeatherApp'),
         actions: [
           IconButton(
-            icon: const Icon(Icons.settings),
+            icon: const Icon(Icons.grid_view_rounded),
             onPressed: () {
               Navigator.of(context).push<void>(
                 SettingsPage.route(
@@ -76,6 +79,7 @@ class _WeatherViewState extends State<WeatherView> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.indigo[800],
         child: const Icon(Icons.search),
         onPressed: () async {
           final city = await Navigator.of(context).push(SearchPage.route());
