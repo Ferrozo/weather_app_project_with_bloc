@@ -40,8 +40,8 @@ class WeatherPopulated extends StatelessWidget {
                     style: theme.textTheme.headline3
                         ?.copyWith(fontWeight: FontWeight.bold),
                   ),
-                  Text(
-                      '''Last Updated at ${TimeOfDay.fromDateTime(weather.lastUpdated)}'''),
+                  Text('''${TimeOfDay.fromDateTime(weather.lastUpdated)}''',
+                      style: const TextStyle(fontWeight: FontWeight.bold)),
                 ],
               ),
             ),

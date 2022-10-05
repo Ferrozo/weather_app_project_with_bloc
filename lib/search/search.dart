@@ -24,8 +24,11 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurple[800],
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.black54),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -34,7 +37,7 @@ class _SearchPageState extends State<SearchPage> {
         height: 58,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.1),
+          color: Colors.grey.withOpacity(0.2),
           borderRadius: BorderRadius.circular(20),
         ),
         child: Row(
@@ -47,12 +50,12 @@ class _SearchPageState extends State<SearchPage> {
                   controller: _textController,
                   decoration: InputDecoration(
                       hintStyle: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.grey[500],
-                      ),
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey[800],
+                          fontSize: 18),
                       labelStyle: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.grey[500],
+                        color: Colors.grey[800],
                       ),
                       // labelText: 'City name',
                       hintText: 'City name',
@@ -63,7 +66,7 @@ class _SearchPageState extends State<SearchPage> {
             IconButton(
               key: const Key('searchPage_search_iconButton'),
               onPressed: () => Navigator.of(context).pop(_text),
-              icon: Icon(Icons.search, color: Colors.grey[500]),
+              icon: Icon(Icons.search, color: Colors.grey[800]),
             )
           ],
         ),

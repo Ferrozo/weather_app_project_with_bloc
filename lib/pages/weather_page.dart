@@ -35,19 +35,28 @@ class _WeatherViewState extends State<WeatherView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurple[800],
+      // backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text('WeatherApp'),
             CircleAvatar(
               radius: 22,
-              backgroundColor: Colors.indigo.withOpacity(0.15),
+              child: Image.asset(
+                'src/assets/icon.png',
+                width: 30,
+              ),
+            ),
+            CircleAvatar(
+              radius: 22,
+              backgroundColor: Colors.grey.withOpacity(0.15),
               child: IconButton(
-                icon: const Icon(Icons.graphic_eq_rounded),
+                icon: const Icon(
+                  Icons.graphic_eq_rounded,
+                  color: Colors.black87,
+                ),
                 onPressed: () {
                   Navigator.of(context).push<void>(
                     SettingsPage.route(

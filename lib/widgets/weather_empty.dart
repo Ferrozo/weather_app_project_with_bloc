@@ -10,25 +10,25 @@ class WeatherEmpty extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
-            'src/assets/sun.png',
+            'src/assets/weather.png',
             width: 150,
           ),
           const SizedBox(
             height: 70,
           ),
           const Text(
-            'Click search button to',
+            'Click search button to search a',
             style: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
+              fontSize: 18,
+              color: Colors.grey,
               fontWeight: FontWeight.bold,
             ),
           ),
           const Text(
-            'search a location or city',
+            'location or city',
             style: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
+              fontSize: 18,
+              color: Colors.grey,
               fontWeight: FontWeight.bold,
             ),
           ),
