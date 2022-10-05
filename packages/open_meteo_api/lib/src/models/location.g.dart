@@ -20,5 +20,4 @@ Location _$LocationFromJson(Map<String, dynamic> json) => $checkedCreate(
         );
         return val;
       },
-      fieldKeyMap: const {'name': 'name'},
     );

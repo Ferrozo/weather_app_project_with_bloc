@@ -22,8 +22,13 @@ class OpenMeteoApiClient {
 
   Future<Location> locationSearch(String query) async {
     final locationRequest = Uri.https(
-        _baseUrlGeocoding, '/v1/search', {'name': query, 'count': '1'});
+      _baseUrlGeocoding,
+      '/v1/search',
+      {'name': query, 'count': '1'},
+    );
+
     final locationResponse = await _httpClient.get(locationRequest);
+
     if (locationResponse.statusCode != 200) {
       throw LocationRequestFailure();
     }
@@ -35,11 +40,14 @@ class OpenMeteoApiClient {
     final results = locationJson['results'] as List;
 
     if (results.isEmpty) throw LocationNotFoundFailure();
+
     return Location.fromJson(results.first as Map<String, dynamic>);
   }
 
-  Future<Weather> getWeather(
-      {required double latitude, required double longitude}) async {
+  Future<Weather> getWeather({
+    required double latitude,
+    required double longitude,
+  }) async {
     final weatherRequest = Uri.https(_baseUrlWeather, 'v1/forecast', {
       'latitude': '$latitude',
       'longitude': '$longitude',
@@ -54,7 +62,7 @@ class OpenMeteoApiClient {
 
     final bodyJson = jsonDecode(weatherResponse.body) as Map<String, dynamic>;
 
-    if (bodyJson.containsKey('current_weather')) {
+    if (!bodyJson.containsKey('current_weather')) {
       throw WeatherNotFoundFailure();
     }
 
