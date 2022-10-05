@@ -8,8 +8,20 @@ class WeatherError extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        const Text('Error:', style: TextStyle(fontSize: 30)),
-        Text('Error 404!', style: theme.textTheme.headline5),
+        Image.asset(
+          'src/assets/error.png',
+          width: 100,
+        ),
+        const SizedBox(height: 20),
+        const Text(
+          'Something went wrong. \nTry again',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ],
     );
   }

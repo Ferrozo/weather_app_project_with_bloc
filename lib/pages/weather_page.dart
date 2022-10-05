@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app_with_bloc/search/search.dart';
@@ -34,23 +35,30 @@ class _WeatherViewState extends State<WeatherView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.indigo[900],
+      backgroundColor: Colors.deepPurple[800],
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
-        title: const Text('WeatherApp'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.grid_view_rounded),
-            onPressed: () {
-              Navigator.of(context).push<void>(
-                SettingsPage.route(
-                  context.read<WeatherCubit>(),
-                ),
-              );
-            },
-          ),
-        ],
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text('WeatherApp'),
+            CircleAvatar(
+              radius: 22,
+              backgroundColor: Colors.indigo.withOpacity(0.15),
+              child: IconButton(
+                icon: const Icon(Icons.menu),
+                onPressed: () {
+                  Navigator.of(context).push<void>(
+                    SettingsPage.route(
+                      context.read<WeatherCubit>(),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
       body: Center(
         child: BlocConsumer<WeatherCubit, WeatherState>(
@@ -79,8 +87,11 @@ class _WeatherViewState extends State<WeatherView> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.indigo[800],
-        child: const Icon(Icons.search),
+        backgroundColor: Colors.blue[100],
+        child: const Icon(
+          CupertinoIcons.search,
+          color: Colors.black,
+        ),
         onPressed: () async {
           final city = await Navigator.of(context).push(SearchPage.route());
           if (!mounted) return;

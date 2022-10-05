@@ -8,16 +8,16 @@ class WeatherLoading extends StatelessWidget {
     final theme = Theme.of(context);
     return Column(
       mainAxisSize: MainAxisSize.min,
-      children: [
-        const Text('Cloudy',
-            style: TextStyle(
-              fontSize: 30,
-            )),
+      children: const [
         Text(
           'Loading Weather',
-          style: theme.textTheme.headline5,
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 22,
+          ),
         ),
-        const Padding(
+        Padding(
           padding: EdgeInsets.all(16),
           child: CircularProgressIndicator(),
         )

@@ -17,7 +17,22 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Settings')),
+      backgroundColor: Colors.deepPurple[800],
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        title: Center(
+            child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text('Weather settings'),
+            Expanded(
+              child: Container(),
+            ),
+          ],
+        )),
+      ),
       body: ListView(
         children: <Widget>[
           BlocBuilder<WeatherCubit, WeatherState>(
@@ -25,12 +40,25 @@ class SettingsPage extends StatelessWidget {
                 previous.temperatureUnits != current.temperatureUnits,
             builder: (context, state) {
               return ListTile(
-                title: const Text('Temperature Units'),
+                tileColor: Colors.grey.withOpacity(0.1),
+                title: Text(
+                  'Temperature Units',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.grey[100],
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
                 isThreeLine: true,
-                subtitle: const Text(
+                subtitle: Text(
                   'Use metric measurements for temperatures units.',
+                  style: TextStyle(
+                    color: Colors.grey[100],
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 trailing: Switch(
+                  activeColor: Colors.blue[100],
                   value: state.temperatureUnits.isCelsius,
                   onChanged: (_) => context.read<WeatherCubit>().toggleUnits(),
                 ),
