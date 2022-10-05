@@ -47,7 +47,7 @@ class _WeatherViewState extends State<WeatherView> {
               radius: 22,
               backgroundColor: Colors.indigo.withOpacity(0.15),
               child: IconButton(
-                icon: const Icon(Icons.menu),
+                icon: const Icon(Icons.graphic_eq_rounded),
                 onPressed: () {
                   Navigator.of(context).push<void>(
                     SettingsPage.route(
