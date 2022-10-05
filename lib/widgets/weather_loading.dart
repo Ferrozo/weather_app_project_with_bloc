@@ -5,16 +5,15 @@ class WeatherLoading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: const [
         Text(
-          'Loading Weather',
+          'Loading for location weather',
           style: TextStyle(
-            color: Colors.white,
+            color: Colors.grey,
             fontWeight: FontWeight.bold,
-            fontSize: 22,
+            fontSize: 20,
           ),
         ),
         Padding(

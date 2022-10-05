@@ -17,8 +17,12 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurple[800],
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.black54),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
         elevation: 0,
         backgroundColor: Colors.transparent,
         title: Center(
@@ -26,7 +30,8 @@ class SettingsPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text('Weather settings'),
+            const Text('Weather settings',
+                style: TextStyle(color: Colors.black54)),
             Expanded(
               child: Container(),
             ),
@@ -45,7 +50,7 @@ class SettingsPage extends StatelessWidget {
                   'Temperature Units',
                   style: TextStyle(
                     fontSize: 18,
-                    color: Colors.grey[100],
+                    color: Colors.grey[800],
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -53,7 +58,7 @@ class SettingsPage extends StatelessWidget {
                 subtitle: Text(
                   'Use metric measurements for temperatures units.',
                   style: TextStyle(
-                    color: Colors.grey[100],
+                    color: Colors.grey[400],
                     fontWeight: FontWeight.bold,
                   ),
                 ),

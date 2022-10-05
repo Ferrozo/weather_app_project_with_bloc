@@ -4,7 +4,6 @@ class WeatherError extends StatelessWidget {
   const WeatherError({super.key});
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -14,10 +13,10 @@ class WeatherError extends StatelessWidget {
         ),
         const SizedBox(height: 20),
         const Text(
-          'Something went wrong. \nTry again',
+          'Oops! something went wrong. \nTry again',
           textAlign: TextAlign.center,
           style: TextStyle(
-            color: Colors.white,
+            color: Colors.grey,
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
